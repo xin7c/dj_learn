@@ -2,7 +2,7 @@
 {% block title %}*=面对主人吧=*{% endblock %}
 <body>
     {% block body %}
-    <div>
+    <div class="cRed">
         <h2>Halo Xuchu - app</h2>
         <h2>本次请求:{{ method }}</h2>
         {% if method == "GET" %}
@@ -19,11 +19,12 @@
         {% endif %}
 
         <h2>你丫地址是:{{ REMOTE_ADDR }}</h2>
-        <h2>HTTP_USER_AGENT:{{ HTTP_USER_AGENT }}</h2>
-        <h2>{% url 'aha' %}</h2>
-        <a href="{% url "doc" %}"><h2>doc</h2></a>
-        <h2>{{ request.user }}</h2>
-        <img src="/static/girl01.png"  alt="Girl" />
+        <h4>HTTP_USER_AGENT:{{ HTTP_USER_AGENT }}</h4>
+        <a href="{% url "doc" %}"><h4>doc</h4></a>
+        <h4>{{ request.user }}</h4>
+        <div class="foot_img">
+            <img src="/static/girl01.png"  alt="Girl" />
+        </div>
     </div>
     {% endblock %}
 </body>
