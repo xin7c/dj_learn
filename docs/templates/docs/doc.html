@@ -1,0 +1,14 @@
+{% extends 'learn/base.html' %}
+{% block title %}Doc{% endblock %}
+{% block body %}
+    <div>
+        <h2>Welcome Doc!!!</h2>
+        <h2><p>请输入两个数字</p></h2>
+        <form action="/doc/add/" method="get">
+            <h2>第一个参数: <input type="text" name="a"></h2>
+            <h2>第二个参数: <input type="text" name="b"></h2>
+        <input type="submit" value="提交">
+        </form>
+    </div>
+    <h2>user_mysql_all:{{ user_mysql_all }}, 数据长度:{{ user_mysql_all|length }}</h2>
+{% endblock %}

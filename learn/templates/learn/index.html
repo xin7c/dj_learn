@@ -1,0 +1,28 @@
+{% extends 'learn/base.html' %}
+{% block title %}*=面对主人吧=*{% endblock %}
+<body>
+    {% block body %}
+    <div>
+        <h2>Halo Xuchu - app</h2>
+        <h2>本次请求:{{ method }}</h2>
+        {% if method == "GET" %}
+            <h2>get参数:{{ get_items }}</h2>
+            {% for key,vaule in get_items %}
+                <h2>{{ key }}:{{ vaule }}</h2>
+            {% empty %}
+                <h2>参数为空!</h2>
+            {% endfor %}
+        {% endif %}
+
+        {% if method == "POST" %}
+            <h2>post参数:{{ post_items }}</h2>
+        {% endif %}
+
+        <h2>你丫地址是:{{ REMOTE_ADDR }}</h2>
+        <h2>HTTP_USER_AGENT:{{ HTTP_USER_AGENT }}</h2>
+        <h2>{% url 'aha' %}</h2>
+        <a href="{% url "doc" %}"><h2>doc</h2></a>
+        <h2>{{ request.user }}</h2>
+    </div>
+    {% endblock %}
+</body>

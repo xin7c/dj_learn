@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}默认标题{% endblock %} - Xuchu</title>
+</head>
+<body>
+    <h1>===我是通栏===</h1>
+    {% block body %}
+{#        默认名字叫body#}
+        <div>我是body里的占位符我就叫block body</div>
+    {% endblock %}
+
+    {% block fresh %}
+        <div>
+            <input id="bt1" type="button" onclick="javascript:location.reload();" value="怼我以刷新哦">
+        </div>
+    {% endblock %}
+
+</body>
+</html>
