@@ -5,6 +5,7 @@
     <div class="cRed">
         <h2>Halo Xuchu - app</h2>
         <h2>本次请求:{{ method }}</h2>
+{#        判断请求方法#}
         {% if method == "GET" %}
             <h2>get参数:{{ get_items }}</h2>
             {% for key,vaule in get_items %}
@@ -17,10 +18,12 @@
         {% if method == "POST" %}
             <h2>post参数:{{ post_items }}</h2>
         {% endif %}
+{#        判断请求方法#}
+
 
         <h2>你丫地址是:{{ REMOTE_ADDR }}</h2>
         <h4>HTTP_USER_AGENT:{{ HTTP_USER_AGENT }}</h4>
-        <a href="{% url "doc" %}"><h4>doc</h4></a>
+{#        <a href="{% url "doc" %}"><h4>doc</h4></a>#}
         <h4>当前用户:{{ request.user }}</h4>
         <div class="foot_img">
             <img src="/static/girl01.png"  alt="Girl" title="!公主殿下!" />

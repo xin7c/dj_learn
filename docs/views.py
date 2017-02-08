@@ -17,8 +17,11 @@ def doc(req):
 def add(req):
     REMOTE_ADDR = req.META["REMOTE_ADDR"]
     get_items = req.GET.items()
+    post_items = req.POST.items()
     # context数据构造
     context = {}
+    context["method"] = req.method
     context["get_items"] = get_items
+    context["post_items"] = post_items
     context["REMOTE_ADDR"] = REMOTE_ADDR
     return render(req, "docs/add.html", context=context)

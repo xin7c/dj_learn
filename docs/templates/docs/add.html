@@ -2,7 +2,22 @@
 {% block title %}Add{% endblock %}
 
 {% block body %}
-    <p>{{ get_items }}</p>
-    <p>{{ REMOTE_ADDR }}</p>
+    <h4>本次表单请求方式为:{{ method }}</h4>
+    {#        判断请求方法#}
+        {% if method == "GET" %}
+            <h3>get参数:{{ get_items }}</h3>
+            {% for key,vaule in get_items %}
+                <h3>{{ key }}:{{ vaule }}</h3>
+            {% empty %}
+                <h3>参数为空!爹在模板文件加了判断喲</h3>
+            {% endfor %}
+        {% endif %}
+
+        {% if method == "POST" %}
+            <h3>post参数:{{ post_items }}</h3>
+        {% endif %}
+    {#        判断请求方法#}
+    <h4>{{ REMOTE_ADDR }}</h4>
+
 {% endblock %}
 
