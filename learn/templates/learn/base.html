@@ -6,7 +6,16 @@
     <link rel="stylesheet" type="text/css" href="/static/common_css.css" />
 </head>
 <body>
-    <h1>===我是通栏===</h1>
+    <h1>=======我是通栏======</h1>
+    <div>
+        <ul class="cRed">
+        <li><a href="/">Home</a></li>
+        <li><a href="{% url "doc" %}">Doc</a></li>
+        <li><a href="http://www.baidu.com">baidu</a></li>
+        <li><a href="/">Home</a></li>
+        </ul>
+    </div>
+
     {% block body %}
 {#        默认名字叫body#}
         <div>我是body里的占位符我就叫block body</div>

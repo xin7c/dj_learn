@@ -21,9 +21,9 @@
         <h2>你丫地址是:{{ REMOTE_ADDR }}</h2>
         <h4>HTTP_USER_AGENT:{{ HTTP_USER_AGENT }}</h4>
         <a href="{% url "doc" %}"><h4>doc</h4></a>
-        <h4>{{ request.user }}</h4>
+        <h4>当前用户:{{ request.user }}</h4>
         <div class="foot_img">
-            <img src="/static/girl01.png"  alt="Girl" />
+            <img src="/static/girl01.png"  alt="Girl" title="!公主殿下!" />
         </div>
     </div>
     {% endblock %}
