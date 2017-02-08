@@ -10,7 +10,7 @@
             {% for key,vaule in get_items %}
                 <h2>{{ key }}:{{ vaule }}</h2>
             {% empty %}
-                <h2>参数为空!</h2>
+                <h2>参数为空!爹在模板文件加了判断喲</h2>
             {% endfor %}
         {% endif %}
 
@@ -23,6 +23,7 @@
         <h2>{% url 'aha' %}</h2>
         <a href="{% url "doc" %}"><h2>doc</h2></a>
         <h2>{{ request.user }}</h2>
+        <img src="/static/girl01.png"  alt="Girl" />
     </div>
     {% endblock %}
 </body>
