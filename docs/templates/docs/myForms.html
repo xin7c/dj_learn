@@ -1,0 +1,11 @@
+{% extends 'learn/base.html' %}
+{% block title %}*=试验表单=*{% endblock %}
+{% block body %}
+<form method='post'>
+    {% csrf_token %}
+    {{ form }}
+    </br>
+    <input type="submit" value="提交">
+</form>
+{% endblock %}
+

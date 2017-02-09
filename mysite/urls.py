@@ -24,5 +24,6 @@ urlpatterns = [
     url(r'^$', learn_views.index, name='aha'),
     url(r'^doc/$', docs_views.doc, name='doc'),
     url(r'^doc/add/$', docs_views.add, name='add'),
+    url(r'^doc/myForms/$', docs_views.myForms, name='myForms'),
 
 ]
