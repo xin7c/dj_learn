@@ -38,7 +38,7 @@ def send_mail(req):
         print "send"
         from_email = settings.DEFAULT_FROM_EMAIL
         static_dir = settings.STATICFILES_DIRS
-        # subject 主题 content 内容 to_addr 是一个列表，发送给哪些人
+        # subject 主题, content 内容, from_email, to_addr 收件人列表
         msg = EmailMultiAlternatives(u'Django 测试邮件', u'十个凯文九个Gay',
                                      from_email, ['xuchu@acfun.tv'])
         msg.content_subtype = "html"
