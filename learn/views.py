@@ -1,7 +1,9 @@
 #coding:utf-8
 from django.shortcuts import render
-
 from django.http import HttpResponse
+from django.conf import settings
+from django.core.mail import EmailMultiAlternatives
+from django.core.mail import mail_admins, mail_managers
 
 def index(req):
     print "===app/index.html==="
@@ -27,5 +29,31 @@ def index(req):
     context["REMOTE_ADDR"] = REMOTE_ADDR
     context["HTTP_USER_AGENT"] = HTTP_USER_AGENT
     return render(req, "learn/index.html", context=context)
+
+def send_mail(req):
+    """发邮件模块"""
+    print req.GET.items()
+    print req.GET['a']
+    if req.GET['a'] == '1':
+        print "send"
+        from_email = settings.DEFAULT_FROM_EMAIL
+        static_dir = settings.STATICFILES_DIRS
+        # subject 主题 content 内容 to_addr 是一个列表，发送给哪些人
+        msg = EmailMultiAlternatives(u'Django 测试邮件', u'十个凯文九个Gay',
+                                     from_email, ['xuchu@acfun.tv'])
+        msg.content_subtype = "html"
+        # 添加附件（可选）
+        # print static_dir[0]
+        # img_path = static_dir[0] + '/girl01.png'
+        # msg.attach_file(img_path)
+
+        # 发送
+        msg.send()
+        # mail_managers(u'发送成功', u'已发送哦', fail_silently=True)
+        return HttpResponse(u"Send Mail Successed!")
+
+    else:
+        print "Send Mail Failed!"
+        return HttpResponse(u"Send Mail Failed!")
 
 

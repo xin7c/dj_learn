@@ -25,5 +25,6 @@ urlpatterns = [
     url(r'^doc/$', docs_views.doc, name='doc'),
     url(r'^doc/add/$', docs_views.add, name='add'),
     url(r'^doc/myForms/$', docs_views.myForms, name='myForms'),
+    url(r'^send_mail/$', learn_views.send_mail, name='send_mail'),
 
 ]

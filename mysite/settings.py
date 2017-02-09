@@ -127,3 +127,17 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static_all')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
+
+# 发邮件
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
+EMAIL_HOST = 'smtp.exmail.qq.com'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'xuchu@acfun.tv'
+EMAIL_HOST_PASSWORD = 'Xc198666'
+DEFAULT_FROM_EMAIL = 'xuchu@acfun.tv'
+#管理员站点
+SERVER_EMAIL = 'xuchu@acfun.tv'
+SERVER_EMAIL = 'xuchu@acfun.tv'
