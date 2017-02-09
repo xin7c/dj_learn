@@ -30,30 +30,50 @@ def index(req):
     context["HTTP_USER_AGENT"] = HTTP_USER_AGENT
     return render(req, "learn/index.html", context=context)
 
-def send_mail(req):
+def send_mail():
     """发邮件模块"""
-    print req.GET.items()
-    print req.GET['a']
-    if req.GET['a'] == '1':
-        print "send"
-        from_email = settings.DEFAULT_FROM_EMAIL
-        static_dir = settings.STATICFILES_DIRS
-        # subject 主题, content 内容, from_email, to_addr 收件人列表
-        msg = EmailMultiAlternatives(u'Django 测试邮件', u'十个凯文九个Gay',
-                                     from_email, ['xuchu@acfun.tv'])
-        msg.content_subtype = "html"
-        # 添加附件（可选）
-        # print static_dir[0]
-        # img_path = static_dir[0] + '/girl01.png'
-        # msg.attach_file(img_path)
+    print "send_mail:Start..."
+    from_email = settings.DEFAULT_FROM_EMAIL
+    static_dir = settings.STATICFILES_DIRS
+    # subject 主题, content 内容, from_email, to_addr 收件人列表
+    msg = EmailMultiAlternatives(u'Django 测试邮件', u'十个凯文九个Gay',
+                                 from_email, ['xuchu@acfun.tv'])
+    msg.content_subtype = "html"
+    # 添加附件（可选）
+    # print static_dir[0]
+    # img_path = static_dir[0] + '/girl01.png'
+    # msg.attach_file(img_path)
+    # 发送
+    msg.send()
+    # mail_managers(u'发送成功', u'已发送哦', fail_silently=True)
+    # return HttpResponse(u"Send Mail Successed!")
+    print "send_mail:Done..."
 
-        # 发送
-        msg.send()
-        # mail_managers(u'发送成功', u'已发送哦', fail_silently=True)
-        return HttpResponse(u"Send Mail Successed!")
 
-    else:
+def send_mail_result(req):
+    lenParam = len(req.GET.items())
+    keysParam = req.GET.keys()
+    print keysParam
+    # print req.GET['a']
+    if lenParam == 0:
+        print "Data is None!"
+        # return HttpResponse(u"Data is None!")
+        return render(req, "learn/send_mail_result.html",
+                      context={"send_mail_result": "Data is None!"})
+
+    elif "a" in keysParam and req.GET['a'] != '1':
         print "Send Mail Failed!"
-        return HttpResponse(u"Send Mail Failed!")
+        # return HttpResponse(u"Send Mail Failed!")
+        return render(req, "learn/send_mail_result.html",
+                      context={"send_mail_result": "Data is Failed!"})
 
+    elif "a" in keysParam and req.GET['a'] == '1':
+        print "send_mail_result"
+        send_mail()
+        # return HttpResponse(u"Send Mail Successed!")
+        return render(req, "learn/send_mail_result.html",
+                      context={"send_mail_result": "Data is Okkkkkkkkkkkkkkkkkkk!"})
+    else:
+        return render(req, "learn/send_mail_result.html",
+                      context={"send_mail_result": "Data is a=xxx"})
 
