@@ -1,0 +1,24 @@
+body{
+    background-color: cornsilk;
+}
+
+.cRed{
+    color: #f60;
+    font-family: "Courier New", courier, monospace;
+    background-color: #66ffcc;
+}
+h1{
+    text-align:center;
+    color: #dc0082;
+}
+h4{
+    color: #01d1ff;
+}
+.foot_img{
+    text-align: center;
+    /*position: absolute;*/
+    bottom: 0;
+}
+li {
+    display:inline;
+}
