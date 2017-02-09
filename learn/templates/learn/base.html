@@ -9,12 +9,12 @@
 <body>
     <h1>=======我是通栏======</h1>
     <div class="well well-sm" >
-        <ul>
-            <li><a href="/">Home </a></li>
-            <li><a href="{% url "doc" %}">Doc </a></li>
-            <li><a href="http://www.baidu.com">baidu </a></li>
-            <li><a href="/doc/myForms">myForms </a></li>
-            <li><a href="/admin">admin </a></li>
+        <ul class="nav nav-pills nav-justified">
+            <li ><a href="/">Home</a></li>
+            <li><a href="{% url "doc" %}">Doc</a></li>
+            <li><a href="http://www.baidu.com">baidu</a></li>
+            <li><a href="/doc/myForms">myForms</a></li>
+            <li><a href="/admin">admin</a></li>
         </ul>
     </div>
     {% block fresh %}
