@@ -1,26 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}默认标题{% endblock %} - Xuchu</title>
     <link rel="stylesheet" type="text/css" href="/static/common_css.css" />
+    <link href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <h1>=======我是通栏======</h1>
-    <div>
-        <ul class="cRed">
-            <li><a href="/">Home</a></li>
-            <li><a href="{% url "doc" %}">Doc</a></li>
-            <li><a href="http://www.baidu.com">baidu</a></li>
-            <li><a href="/doc/myForms">myForms</a></li>
-            <li><a href="/admin">admin</a></li>
+    <div class="well well-sm" >
+        <ul>
+            <li><a href="/">Home </a></li>
+            <li><a href="{% url "doc" %}">Doc </a></li>
+            <li><a href="http://www.baidu.com">baidu </a></li>
+            <li><a href="/doc/myForms">myForms </a></li>
+            <li><a href="/admin">admin </a></li>
         </ul>
     </div>
     {% block fresh %}
         <div>
-            <input id="bt1" type="button" onclick="javascript:location.reload();" value="怼我以刷新哦">
-        </div>
+            <input id="bt1" type="button" onclick="javascript:location.reload();" value="怼我以刷新哦" class="btn btn-danger">
+        </div></br>
     {% endblock %}
+
     {% block body %}
 {#        默认名字叫body#}
         <div>我是body里的占位符我就叫block body</div>

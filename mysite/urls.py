@@ -13,10 +13,11 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
 from learn import views as learn_views
 from docs import views as docs_views
+from django.contrib.auth import urls as auth_urls
 
 
 urlpatterns = [
@@ -27,5 +28,6 @@ urlpatterns = [
     url(r'^doc/myForms/$', docs_views.myForms, name='myForms'),
     url(r'^send_mail/$', learn_views.send_mail_result, name='send_mail'),
     # url(r'^send_mail/send_mail_result$', learn_views.send_mail_result, name='send_mail_result'),
+    # url(r'^accounts/', include(auth_urls, namespace='accounts')),
 
 ]

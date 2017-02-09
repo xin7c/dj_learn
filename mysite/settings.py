@@ -140,4 +140,3 @@ EMAIL_HOST_PASSWORD = 'Xc198666'
 DEFAULT_FROM_EMAIL = 'xuchu@acfun.tv'
 #管理员站点
 SERVER_EMAIL = 'xuchu@acfun.tv'
-SERVER_EMAIL = 'xuchu@acfun.tv'
