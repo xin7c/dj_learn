@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>邮件发送结果</title>
-</head>
+{% extends 'learn/base.html' %}
+{% block title %}*=发特么邮件=*{% endblock %}
 <body>
-{{ send_mail_result }}
+    {% block body %}
+        <h2>{{ send_mail_result }}</h2>
+    {% endblock %}
 </body>
-</html>
