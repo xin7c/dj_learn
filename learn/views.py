@@ -77,3 +77,8 @@ def send_mail_result(req):
         return render(req, "learn/send_mail_result.html",
                       context={"send_mail_result": "Data is a=xxx"})
 
+def add(req):
+    post_items = req.POST.items()
+    print post_items
+    return HttpResponse(post_items)
+

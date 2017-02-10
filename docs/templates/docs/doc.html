@@ -13,4 +13,34 @@
         </form>
     </div>
     <h2>user_mysql_all:{{ user_mysql_all }}, 数据长度:{{ user_mysql_all|length }}</h2>
+
+
+    <form action="/add/" method="post">
+    ajax_1: <input type="text" id="ajax_1" name="ajax_1"> <br>
+    ajax_2: <input type="text" id="b" name="b"> <br>
+    <p>result: <span id='result'></span></p>
+    <button type="button" id='sum'>提交</button>
+</form>
+    <script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+      $("#sum").click(function(){
+        var a = $("#ajax_1").val();
+        var b = $("#b").val();
+
+{#        $.post("/add/",{'ajax_1':a,'b':b}, function(ret){#}
+{#            $('#result').html(ret);#}
+{#        });#}
+        $.ajax({
+            url:"/add/",
+            type:"post",
+            crossDomain:true,
+            xhrFields:{withCredentials:true},
+            data:{'ajax_1':a,'b':b}
+        }).done(function(data){
+              $('#result').html(data);
+        });
+      });
+    });
+</script>
 {% endblock %}
